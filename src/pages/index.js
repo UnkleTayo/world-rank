@@ -4,6 +4,7 @@ import Layout from '../component/Layout/Layout';
 import styles from '../styles/Home.module.css';
 import SearchInput from '../component/SearchInput/SearchInput';
 import CountriesTable from '../component/CountriesTable/CountriesTable';
+import Nothing from '../component/Nothing/Nothing';
 
 export default function Home({ countries }) {
   const [keyword, setKeyword] = useState('');
@@ -13,6 +14,7 @@ export default function Home({ countries }) {
       country.region.toLowerCase().includes(keyword) ||
       country.subregion.toLowerCase().includes(keyword)
   );
+
 
   const handleInputChange = (e) => {
     e.preventDefault();
@@ -34,7 +36,7 @@ export default function Home({ countries }) {
         </div>
       </div>
 
-      <CountriesTable countries={filteredCountries} />
+      {filteredCountries.length > 0 ? <CountriesTable countries={filteredCountries} /> : <Nothing/>}
     </Layout>
   );
 }

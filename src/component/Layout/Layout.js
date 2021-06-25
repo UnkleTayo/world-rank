@@ -76,8 +76,8 @@ const Layout = ({ children, title = 'World Ranks' }) => {
       <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>
-        Developed with loved by{' '}
-        <a href="github.com/unkletayo">Akinsanya Adetayo</a>
+        Developed with love by{' '}
+        <a className={styles.me} href="github.com/unkletayo">Akinsanya Adetayo</a>
       </footer>
     </div>
   );
