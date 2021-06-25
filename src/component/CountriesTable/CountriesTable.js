@@ -44,7 +44,7 @@ const CountriesTable = ({ countries }) => {
 
   const switchDirection = () => {
     if (!direction) {
-      setDirection('asc');
+      setDirection('desc');
     } else if (direction === 'desc') {
       setDirection('asc');
     } else {
@@ -111,9 +111,9 @@ const CountriesTable = ({ countries }) => {
 
             <div className={styles.population}>{country.population}</div>
 
-            <div className={styles.area}>{country.area || 0}</div>
+            <div className={styles.area}>{country?.area || 0}</div>
 
-            <div className={styles.gini}>{country.gini || 0} %</div>
+            <div className={styles.gini}>{country?.gini || 0} %</div>
           </div>
         </Link>
       ))}

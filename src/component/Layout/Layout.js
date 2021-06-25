@@ -1,8 +1,37 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Brightness6Rounded } from "@material-ui/icons";
 import styles from './Layout.module.css';
 
+let systemTheme;
+
 const Layout = ({ children, title = 'World Ranks' }) => {
+  const [theme, setTheme] = useState("")
+  useEffect(() => {
+    const preferDarkTheme = window.matchMedia("(prefers-color-scheme: dark)")
+    const currentTheme = localStorage.getItem("theme")
+    if (preferDarkTheme.matches){
+      if (!currentTheme){
+        setAppTheme("dark")
+      } else {
+        setAppTheme(currentTheme)
+      }
+    }
+    // setTheme(localStorage.getItem("theme"))
+  }, [theme])
+
+  // const toggleTheme = () =>{
+  //   (theme === 'light') ? setAppTheme("dark") : setAppTheme("dark")
+  // }
+
+  const setAppTheme = (theme) =>{
+    setTheme(theme)
+    localStorage.setItem("theme", theme)
+    document.documentElement.setAttribute('data-theme',theme)
+    console.log("Hello New man")
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -39,6 +68,9 @@ const Layout = ({ children, title = 'World Ranks' }) => {
             <rect y="4" width="7.33333" height="4.4" rx="2" fill="#21B6B7" />
           </svg>
         </Link>
+        {/* <button onClick={toggleTheme} className={styles.themeSwitcher}>
+          <Brightness6Rounded/>
+        </button> */}
       </header>
 
       <main className={styles.main}>{children}</main>
