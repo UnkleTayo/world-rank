@@ -7,7 +7,7 @@ const Nothing = () => {
         <span className={styles.search_message_empty_decal_eyes}>:</span>
         <span>(</span>
       </span>
-      <h2 className={styles.search_message_empty_message}>Nope, nothing.</h2>
+      <h2 className={styles.search_message_empty_message}>No match, try searching for another continent, region or country</h2>
     </div>
   );
 };

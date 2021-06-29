@@ -11,7 +11,7 @@ Features:
 
 Things to do
 
-[x]Adding a card for a non existence country, continent or region
+1. Pagination
 
 The hosted site can be found  [Here](https://worldrank.netlify.app/)
 
